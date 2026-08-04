@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<plugin id="cordova-plugin-gdevelop-yandex-mobile-ads-sdk8" version="4.0.0"
+<plugin id="cordova-plugin-gdevelop-yandex-mobile-ads-sdk8" version="4.1.0"
  xmlns="http://apache.org/cordova/ns/plugins/1.0"
  xmlns:android="http://schemas.android.com/apk/res/android">
   <name>GDevelopYandexAds</name>
-  <description>Yandex Mobile Ads SDK 8.2 for GDevelop: banner, App Open, interstitial and rewarded ads. Cordova Android 15 / Android API 36.</description>
+  <description>Yandex Mobile Ads SDK 8.2 for GDevelop: banner with reserved game space, App Open, interstitial and rewarded ads. Cordova Android 15 / Android API 36.</description>
   <license>MIT</license>
   <engines>
     <engine name="cordova" version=">=12.0.0"/>
