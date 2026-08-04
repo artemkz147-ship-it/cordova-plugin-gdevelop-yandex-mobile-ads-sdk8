@@ -1,0 +1,41 @@
+{
+  "name": "cordova-plugin-gdevelop-yandex-mobile-ads-sdk8",
+  "version": "4.1.0",
+  "description": "Yandex Mobile Ads SDK 8.2 bridge for GDevelop/Cordova Android: banner with non-overlapping game layout, App Open, interstitial and rewarded ads, with Cordova Android 15 API 36 compatibility fix.",
+  "keywords": [
+    "cordova",
+    "ecosystem:cordova",
+    "gdevelop",
+    "yandex-ads",
+    "banner",
+    "app-open",
+    "interstitial",
+    "rewarded",
+    "android-16",
+    "api-36"
+  ],
+  "license": "MIT",
+  "files": [
+    "plugin.xml",
+    "www/GDevelopYandexAds.js",
+    "src/android/GDevelopYandexAdsPlugin.java",
+    "hooks/ensure-android-api36.js",
+    "README.md"
+  ],
+  "cordova": {
+    "id": "cordova-plugin-gdevelop-yandex-mobile-ads-sdk8",
+    "platforms": [
+      "android"
+    ]
+  },
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=12.0.0"
+    },
+    {
+      "name": "cordova-android",
+      "version": ">=15.0.0"
+    }
+  ]
+}
