@@ -1,0 +1,2435 @@
+{
+  "author": "Артем Жирнов",
+  "category": "Реклама",
+  "dimension": "",
+  "extensionNamespace": "",
+  "fullName": "Яндекс Mobile Ads для Android",
+  "gdevelopVersion": "",
+  "helpPath": "https://github.com/artemkz147-ship-it/cordova-plugin-gdevelop-yandex-mobile-ads-sdk8",
+  "iconUrl": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0ibWRpLWFscGhhLXktY2lyY2xlIiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTksN0wxMSwxM1YxN0gxM1YxM0wxNSw3SDEzTDEyLDEwTDExLDdIOU0xMiwyQTEwLDEwIDAgMCwxIDIyLDEyQTEwLDEwIDAgMCwxIDEyLDIyQTEwLDEwIDAgMCwxIDIsMTJBMTAsMTAgMCAwLDEgMTIsMloiIC8+PC9zdmc+",
+  "name": "YandexMobileAds",
+  "previewIconUrl": "https://asset-resources.gdevelop.io/public-resources/Icons/d767f43666b22704833086df6ea37c1737e7c53064168c6c8417d1d1dff6e674_alpha-y-circle.svg",
+  "shortDescription": "Баннеры, межстраничная реклама, реклама с наградой и реклама при запуске приложения.",
+  "version": "2.5.2",
+  "description": [
+    "Расширение подключает Яндекс Mobile Ads SDK 8.2.0 к Android-играм, экспортируемым из GDevelop.",
+    "Поддерживает адаптивный баннер, межстраничную рекламу, рекламу с наградой и рекламу при открытии приложения.",
+    "Все действия показа автоматически ждут окончания инициализации SDK, поэтому их можно поставить в одно событие «При запуске сцены».",
+    "В предпросмотре браузера нативная реклама не показывается — проверяйте установленный Android APK.",
+    "Исправлена повторная выдача награды после смены сцены: условие получения награды теперь само поглощает событие и срабатывает только один раз.",
+    "Добавлен параметр «Не перекрывать игру»: нативный плагин уменьшает Android WebView на высоту баннера и возвращает размер после скрытия.",
+    "Исправлено перекрытие интерфейса баннером: свободное место создаётся штатными полями рендера GDevelop, поэтому вся сцена масштабируется выше рекламы.",
+    "Исправлено сжатие по бокам: при включённом «Не перекрывать игру» баннер уменьшает только доступную высоту сцены, сохраняя полную ширину экрана.",
+    "При обновлении баннера игровая область больше не меняет размер: на месте рекламы временно показывается аккуратная заглушка до появления нового баннера.",
+    "В настройки добавлены собственный текст и картинка заглушки. Картинка автоматически вписывается в область баннера с сохранением пропорций, а размер игровой области при обновлении рекламы не меняется.",
+    "Исправлено отображение картинки заглушки: если выбрана картинка, она заполняет всю ширину области баннера как полноценный баннер.",
+    "Исправлено масштабирование картинки заглушки: изображение теперь целиком вписывается в область баннера без обрезки и с сохранением пропорций.",
+    "Добавлены расширенные настройки заглушки баннера: цвет и прозрачность фона, цвет и прозрачность текста, ресурс шрифта, размер, жирность, курсив, подчёркивание, межстрочный интервал, обводка и тень. Текст всегда выравнивается строго по центру по ширине и высоте.",
+    "Исправлено поведение картинки заглушки: изображение теперь растягивается на всю площадь заглушки по ширине и высоте без полей по краям.",
+    "Цвета заглушки теперь выбираются стандартной палитрой GDevelop, без ручного ввода RGB-кодов.",
+    "Заглушка баннера может быть интерактивной: задайте ссылку, и нажатие по заглушке откроет её. Пустая ссылка отключает кликабельность.",
+    "В действии «Обновить баннер сейчас» добавлена настраиваемая пауза: старый баннер удаляется сразу, во время паузы и загрузки показывается заглушка, затем появляется новый баннер.",
+    "Упрощены только расширенные настройки InitSDK: скрыты прозрачность, подчёркивание, высота строки, обводка, тень и устаревшая высота баннера. Оставлена одна инициализация с прежними именами и порядком параметров."
+  ],
+  "tags": [
+    "яндекс",
+    "реклама",
+    "android",
+    "баннер",
+    "межстраничная",
+    "rewarded",
+    "app open"
+  ],
+  "authorIds": [],
+  "dependencies": [
+    {
+      "exportName": "cordova-plugin-gdevelop-yandex-mobile-ads-sdk8",
+      "name": "GDevelop Yandex Mobile Ads SDK 8.2",
+      "type": "cordova",
+      "version": "https://github.com/artemkz147-ship-it/cordova-plugin-gdevelop-yandex-mobile-ads-sdk8.git#main"
+    }
+  ],
+  "globalVariables": [
+    {
+      "name": "isSdkReadyExt",
+      "type": "boolean",
+      "value": false
+    },
+    {
+      "name": "isSdkInitializationFailExt",
+      "type": "boolean",
+      "value": false
+    },
+    {
+      "name": "isAdsPluginUnavailableExt",
+      "type": "boolean",
+      "value": false
+    },
+    {
+      "name": "isBannerLoadedExt",
+      "type": "boolean",
+      "value": false
+    },
+    {
+      "name": "isBannerLoadFailExt",
+      "type": "boolean",
+      "value": false
+    },
+    {
+      "name": "isBannerShownExt",
+      "type": "boolean",
+      "value": false
+    },
+    {
+      "name": "isBannerHiddenExt",
+      "type": "boolean",
+      "value": false
+    },
+    {
+      "name": "isInterstitialLoadedExt",
+      "type": "boolean",
+      "value": false
+    },
+    {
+      "name": "isInterstitialLoadFailExt",
+      "type": "boolean",
+      "value": false
+    },
+    {
+      "name": "isInterstitialShownExt",
+      "type": "boolean",
+      "value": false
+    },
+    {
+      "name": "isInterstitialFailedToShowExt",
+      "type": "boolean",
+      "value": false
+    },
+    {
+      "name": "isInterstitialDismissedExt",
+      "type": "boolean",
+      "value": false
+    },
+    {
+      "name": "isRewardedLoadedExt",
+      "type": "boolean",
+      "value": false
+    },
+    {
+      "name": "isRewardedLoadFailExt",
+      "type": "boolean",
+      "value": false
+    },
+    {
+      "name": "isRewardedShownExt",
+      "type": "boolean",
+      "value": false
+    },
+    {
+      "name": "isRewardedFailedToShowExt",
+      "type": "boolean",
+      "value": false
+    },
+    {
+      "name": "isRewardActivatedExt",
+      "type": "boolean",
+      "value": false
+    },
+    {
+      "name": "isRewardedDismissedExt",
+      "type": "boolean",
+      "value": false
+    },
+    {
+      "name": "isOpenAppAdsLoadedExt",
+      "type": "boolean",
+      "value": false
+    },
+    {
+      "name": "isOpenAppAdsLoadFailExt",
+      "type": "boolean",
+      "value": false
+    },
+    {
+      "name": "isOpenAppAdsShownExt",
+      "type": "boolean",
+      "value": false
+    },
+    {
+      "name": "isOpenAppAdsFailedToShowExt",
+      "type": "boolean",
+      "value": false
+    },
+    {
+      "name": "isOpenAppAdslDismissedExt",
+      "type": "boolean",
+      "value": false
+    },
+    {
+      "name": "rewardAmountExt",
+      "type": "number",
+      "value": 0
+    },
+    {
+      "name": "lastErrorExt",
+      "type": "string",
+      "value": ""
+    }
+  ],
+  "sceneVariables": [],
+  "eventsFunctions": [
+    {
+      "description": "Подключает нативный SDK, сохраняет идентификаторы рекламных блоков и настраивает заглушку баннера. Выполняйте один раз при запуске первой сцены. Текст заглушки всегда расположен строго по центру по ширине и высоте.",
+      "fullName": "Инициализировать Яндекс Mobile Ads SDK 8",
+      "functionType": "Action",
+      "group": "1. Подключение и настройки",
+      "name": "InitSDK",
+      "sentence": "Инициализировать рекламу: с наградой _PARAM1_, межстраничная _PARAM2_, баннер _PARAM3_, при запуске _PARAM4_, заглушка _PARAM9_, картинка _PARAM10_, ссылка _PARAM11_, цвет заглушки _PARAM12_, цвет текста _PARAM14_, шрифт _PARAM16_, размер _PARAM17_, стиль _PARAM18_",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::JsCode",
+          "inlineCode": [
+            "const __yaVars = runtimeScene.getGame().getVariablesForExtension('YandexMobileAds');",
+            "const __yaSetB = (n,v) => __yaVars.get(n).setBoolean(Boolean(v));",
+            "const __yaSetN = (n,v) => __yaVars.get(n).setNumber(Number(v)||0);",
+            "const __yaSetS = (n,v) => __yaVars.get(n).setString(v == null ? '' : String(v));",
+            "const __yaApi = window.GDevelopYandexAds || window.SurvivalYandexAds || window.YandexAds;",
+            "const __yaError = (e) => { __yaSetS('lastErrorExt', e && (e.message || e.toString) ? (e.message || e.toString()) : String(e || 'Неизвестная ошибка рекламы')); };",
+            "if (!window.__GDevelopYandexAdsExtensionStateV6) {",
+            "  const s = window.__GDevelopYandexAdsExtensionStateV6 = { ready: {}, listeners: [], renderer: null, baseMargins: null, baseKeepRatio: null, bannerHeight: 100, bannerAtTop: false, reserveSpace: true, bannerVisible: false, reloadingBanner: false, placeholder: null, placeholderText: 'Реклама загружается', placeholderImageResource: '', placeholderImageUrl: '', placeholderClickUrl: '', placeholderBackgroundColor: '248;250;252', placeholderBackgroundOpacity: 255, placeholderTextColor: '71;85;105', placeholderTextOpacity: 255, placeholderFontResource: '', placeholderTextSize: 17, placeholderBold: true, placeholderItalic: false, placeholderUnderlined: false, placeholderLineHeight: 0, placeholderOutlineEnabled: false, placeholderOutlineColor: '255;255;255', placeholderOutlineThickness: 2, placeholderShadowEnabled: false, placeholderShadowColor: '0;0;0', placeholderShadowDistance: 4, placeholderShadowBlur: 2, placeholderShadowAngle: 90, placeholderShadowOpacity: 127, runtimeGame: null };",
+            "  s.applyBannerMargin = () => {",
+            "    const renderer = s.renderer;",
+            "    if (!renderer || typeof renderer.setMargins !== 'function') return;",
+            "    if (!s.baseMargins) {",
+            "      s.baseMargins = {",
+            "        top: Number(renderer._marginTop) || 0,",
+            "        right: Number(renderer._marginRight) || 0,",
+            "        bottom: Number(renderer._marginBottom) || 0,",
+            "        left: Number(renderer._marginLeft) || 0",
+            "      };",
+            "    }",
+            "    if (s.baseKeepRatio === null) {",
+            "      s.baseKeepRatio = renderer._keepRatio !== false;",
+            "    }",
+            "    const base = s.baseMargins;",
+            "    const reserve = s.reserveSpace && s.bannerVisible ? Math.max(0, Number(s.bannerHeight) || 100) : 0;",
+            "    const heightOnly = reserve > 0;",
+            "    if (typeof renderer.keepAspectRatio === 'function') {",
+            "      renderer.keepAspectRatio(heightOnly ? false : s.baseKeepRatio);",
+            "    }",
+            "    renderer.setMargins(",
+            "      base.top + (s.bannerAtTop ? reserve : 0),",
+            "      base.right,",
+            "      base.bottom + (s.bannerAtTop ? 0 : reserve),",
+            "      base.left",
+            "    );",
+            "  };",
+            "  s.hideRefreshPlaceholder = () => {",
+            "    if (s.placeholder && s.placeholder.parentNode) s.placeholder.parentNode.removeChild(s.placeholder);",
+            "    s.placeholder = null;",
+            "  };",
+            "  s.resolvePlaceholderImage = () => {",
+            "    s.placeholderImageUrl = '';",
+            "    const resourceName = String(s.placeholderImageResource || '').trim();",
+            "    if (!resourceName || !s.runtimeGame) return '';",
+            "    try {",
+            "      const manager = s.runtimeGame.getImageManager && s.runtimeGame.getImageManager();",
+            "      const texture = manager && manager.getPIXITexture && manager.getPIXITexture(resourceName);",
+            "      const source = texture && texture.baseTexture && texture.baseTexture.resource && texture.baseTexture.resource.source;",
+            "      if (source && typeof source.src === 'string' && source.src) s.placeholderImageUrl = source.src;",
+            "      else if (source && typeof source.toDataURL === 'function') s.placeholderImageUrl = source.toDataURL('image/png');",
+            "    } catch (error) {",
+            "      console.warn('[YandexMobileAds] Не удалось получить картинку заглушки:', error);",
+            "    }",
+            "    return s.placeholderImageUrl;",
+            "  };",
+            "  s.toCssColor = (value, opacity, fallback) => {",
+            "    const alpha = Math.max(0, Math.min(255, Number(opacity == null ? 255 : opacity) || 0)) / 255;",
+            "    const raw = String(value == null ? '' : value).trim();",
+            "    const hex = raw.match(/^#?([0-9a-f]{6})$/i);",
+            "    if (hex) {",
+            "      const n = parseInt(hex[1], 16);",
+            "      return 'rgba(' + ((n >> 16) & 255) + ',' + ((n >> 8) & 255) + ',' + (n & 255) + ',' + alpha.toFixed(3) + ')';",
+            "    }",
+            "    const shortHex = raw.match(/^#?([0-9a-f]{3})$/i);",
+            "    if (shortHex) {",
+            "      const h = shortHex[1];",
+            "      const r = parseInt(h[0] + h[0], 16);",
+            "      const g = parseInt(h[1] + h[1], 16);",
+            "      const b = parseInt(h[2] + h[2], 16);",
+            "      return 'rgba(' + r + ',' + g + ',' + b + ',' + alpha.toFixed(3) + ')';",
+            "    }",
+            "    const parts = raw.match(/-?\\d+(?:\\.\\d+)?/g);",
+            "    if (parts && parts.length >= 3) {",
+            "      const r = Math.max(0, Math.min(255, Number(parts[0]) || 0));",
+            "      const g = Math.max(0, Math.min(255, Number(parts[1]) || 0));",
+            "      const b = Math.max(0, Math.min(255, Number(parts[2]) || 0));",
+            "      return 'rgba(' + r + ',' + g + ',' + b + ',' + alpha.toFixed(3) + ')';",
+            "    }",
+            "    return fallback || 'rgba(0,0,0,' + alpha.toFixed(3) + ')';",
+            "  };",
+            "  s.getPlaceholderFontFamily = () => {",
+            "    const resourceName = String(s.placeholderFontResource || '').trim();",
+            "    if (!resourceName || !s.runtimeGame) return 'system-ui,-apple-system,Segoe UI,sans-serif';",
+            "    try {",
+            "      const fontManager = s.runtimeGame.getFontManager && s.runtimeGame.getFontManager();",
+            "      const family = fontManager && fontManager.getFontFamily && fontManager.getFontFamily(resourceName);",
+            "      if (family) return family + ',system-ui,-apple-system,Segoe UI,sans-serif';",
+            "    } catch (error) {",
+            "      console.warn('[YandexMobileAds] Не удалось применить шрифт заглушки:', error);",
+            "    }",
+            "    return 'system-ui,-apple-system,Segoe UI,sans-serif';",
+            "  };",
+            "  s.getPlaceholderClickUrl = () => {",
+            "    let url = String(s.placeholderClickUrl || '').trim();",
+            "    if (!url) return '';",
+            "    if (!/^[a-z][a-z0-9+.-]*:/i.test(url)) url = 'https://' + url;",
+            "    if (/^(javascript|data|file|content|blob):/i.test(url)) {",
+            "      console.warn('[YandexMobileAds] Небезопасная ссылка заглушки заблокирована:', url);",
+            "      return '';",
+            "    }",
+            "    return url;",
+            "  };",
+            "  s.openPlaceholderLink = () => {",
+            "    const url = s.getPlaceholderClickUrl ? s.getPlaceholderClickUrl() : '';",
+            "    if (!url) return;",
+            "    try {",
+            "      if (window.cordova && window.cordova.InAppBrowser && typeof window.cordova.InAppBrowser.open === 'function') {",
+            "        window.cordova.InAppBrowser.open(url, '_system');",
+            "        return;",
+            "      }",
+            "      if (window.navigator && window.navigator.app && typeof window.navigator.app.loadUrl === 'function') {",
+            "        window.navigator.app.loadUrl(url, { openExternal: true });",
+            "        return;",
+            "      }",
+            "      const opened = window.open(url, '_system');",
+            "      if (!opened) {",
+            "        const link = document.createElement('a');",
+            "        link.href = url;",
+            "        link.target = '_blank';",
+            "        link.rel = 'noopener noreferrer external';",
+            "        link.style.display = 'none';",
+            "        (document.body || document.documentElement).appendChild(link);",
+            "        link.click();",
+            "        link.remove();",
+            "      }",
+            "    } catch (error) {",
+            "      console.warn('[YandexMobileAds] Не удалось открыть ссылку заглушки:', error);",
+            "    }",
+            "  };",
+            "  s.showRefreshPlaceholder = () => {",
+            "    if (!s.reserveSpace || !s.reloadingBanner || typeof document === 'undefined') return;",
+            "    s.hideRefreshPlaceholder();",
+            "    const holder = document.createElement('div');",
+            "    const clickUrl = s.getPlaceholderClickUrl ? s.getPlaceholderClickUrl() : '';",
+            "    holder.id = '__gdevelop_yandex_ads_refresh_placeholder';",
+            "    const height = Math.max(1, Number(s.bannerHeight) || 100);",
+            "    const imageUrl = s.resolvePlaceholderImage ? s.resolvePlaceholderImage() : '';",
+            "    const backgroundColor = imageUrl ? 'transparent' : s.toCssColor(s.placeholderBackgroundColor, s.placeholderBackgroundOpacity, 'rgba(248,250,252,1)');",
+            "    holder.style.cssText = [",
+            "      'position:fixed','left:0','right:0','height:'+height+'px',",
+            "      s.bannerAtTop ? 'top:0' : 'bottom:0',",
+            "      'z-index:2147483646','pointer-events:'+(clickUrl ? 'auto' : 'none'),'box-sizing:border-box',",
+            "      'display:flex','align-items:center','justify-content:center','overflow:hidden',",
+            "      'background:'+backgroundColor,'cursor:'+(clickUrl ? 'pointer' : 'default'),'touch-action:manipulation','user-select:none','-webkit-user-select:none'",
+            "    ].join(';');",
+            "    const content = document.createElement('div');",
+            "    content.style.cssText = 'position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center;box-sizing:border-box;overflow:hidden';",
+            "    if (imageUrl) {",
+            "      const image = document.createElement('img');",
+            "      image.alt = '';",
+            "      image.src = imageUrl;",
+            "      image.style.cssText = 'position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:fill;object-position:center';",
+            "      content.appendChild(image);",
+            "    }",
+            "    const customText = String(s.placeholderText == null ? '' : s.placeholderText);",
+            "    if (customText) {",
+            "      const text = document.createElement('span');",
+            "      text.textContent = customText;",
+            "      const fontSize = Math.max(1, Number(s.placeholderTextSize) || 17);",
+            "      const lineHeight = Number(s.placeholderLineHeight) > 0 ? Math.max(1, Number(s.placeholderLineHeight)) + 'px' : 'normal';",
+            "      const textColor = s.toCssColor(s.placeholderTextColor, s.placeholderTextOpacity, 'rgba(71,85,105,1)');",
+            "      const fontFamily = s.getPlaceholderFontFamily();",
+            "      const outlineThickness = Math.max(0, Number(s.placeholderOutlineThickness) || 0);",
+            "      const outlineColor = s.toCssColor(s.placeholderOutlineColor, 255, 'rgba(255,255,255,1)');",
+            "      const shadowDistance = Math.max(0, Number(s.placeholderShadowDistance) || 0);",
+            "      const shadowBlur = Math.max(0, Number(s.placeholderShadowBlur) || 0);",
+            "      const shadowAngle = (Number(s.placeholderShadowAngle) || 0) * Math.PI / 180;",
+            "      const shadowX = Math.cos(shadowAngle) * shadowDistance;",
+            "      const shadowY = Math.sin(shadowAngle) * shadowDistance;",
+            "      const shadowColor = s.toCssColor(s.placeholderShadowColor, s.placeholderShadowOpacity, 'rgba(0,0,0,.498)');",
+            "      text.style.cssText = [",
+            "        'position:relative','z-index:1','display:flex','align-items:center','justify-content:center',",
+            "        'width:100%','height:100%','box-sizing:border-box','padding:4px 12px','overflow:hidden',",
+            "        'text-align:center','white-space:normal','overflow-wrap:anywhere','word-break:break-word',",
+            "        'color:'+textColor,'font-family:'+fontFamily,'font-size:'+fontSize+'px','line-height:'+lineHeight,",
+            "        'font-weight:'+(s.placeholderBold ? '700' : '400'),",
+            "        'font-style:'+(s.placeholderItalic ? 'italic' : 'normal'),",
+            "        'text-decoration:'+(s.placeholderUnderlined ? 'underline' : 'none'),",
+            "        s.placeholderOutlineEnabled && outlineThickness > 0 ? '-webkit-text-stroke:'+outlineThickness+'px '+outlineColor : '-webkit-text-stroke:0 transparent',",
+            "        s.placeholderShadowEnabled ? 'text-shadow:'+shadowX.toFixed(2)+'px '+shadowY.toFixed(2)+'px '+shadowBlur+'px '+shadowColor : 'text-shadow:none'",
+            "      ].join(';');",
+            "      content.appendChild(text);",
+            "    }",
+            "    if (clickUrl) {",
+            "      holder.setAttribute('role', 'link');",
+            "      holder.setAttribute('tabindex', '0');",
+            "      holder.setAttribute('aria-label', customText || 'Открыть ссылку');",
+            "      holder.addEventListener('click', (event) => {",
+            "        event.preventDefault();",
+            "        event.stopPropagation();",
+            "        s.openPlaceholderLink && s.openPlaceholderLink();",
+            "      });",
+            "      holder.addEventListener('keydown', (event) => {",
+            "        if (event.key !== 'Enter' && event.key !== ' ') return;",
+            "        event.preventDefault();",
+            "        event.stopPropagation();",
+            "        s.openPlaceholderLink && s.openPlaceholderLink();",
+            "      });",
+            "    }",
+            "    holder.appendChild(content);",
+            "    (document.body || document.documentElement).appendChild(holder);",
+            "    s.placeholder = holder;",
+            "  };",
+            "  const on = (name, fn) => { const h = (ev) => fn((ev && ev.detail) || {}); window.addEventListener('gdevelop:yandex:' + name, h); s.listeners.push([name,h]); };",
+            "  on('initialized', () => { s.ready.sdk=true; __yaSetB('isSdkReadyExt',true); __yaSetB('isSdkInitializationFailExt',false); });",
+            "  on('initializationFailed', x => { s.ready.sdk=false; __yaSetB('isSdkReadyExt',false); __yaSetB('isSdkInitializationFailExt',true); __yaSetS('lastErrorExt',x.message||'Не удалось инициализировать SDK рекламы'); });",
+            "  on('bannerLoaded', x => { s.ready.banner=true; __yaSetB('isBannerLoadedExt',true); __yaSetB('isBannerLoadFailExt',false); const measuredHeight=Number(x.heightDp||x.height||0); if(measuredHeight>0) s.bannerHeight=measuredHeight; if(s.bannerVisible) s.applyBannerMargin(); });",
+            "  on('bannerFailedToLoad', x => { s.ready.banner=false; s.reloadingBanner=false; s.hideRefreshPlaceholder&&s.hideRefreshPlaceholder(); s.bannerVisible=false; s.applyBannerMargin(); __yaSetB('isBannerLoadedExt',false); __yaSetB('isBannerLoadFailExt',true); __yaSetS('lastErrorExt',x.message||'Не удалось загрузить баннер'); });",
+            "  on('bannerShown', () => { s.bannerVisible=true; s.reloadingBanner=false; s.applyBannerMargin(); s.hideRefreshPlaceholder&&s.hideRefreshPlaceholder(); __yaSetB('isBannerShownExt',true); });",
+            "  on('bannerHidden', () => { if(s.reloadingBanner){ s.bannerVisible=true; s.applyBannerMargin(); s.showRefreshPlaceholder&&s.showRefreshPlaceholder(); } else { s.bannerVisible=false; s.hideRefreshPlaceholder&&s.hideRefreshPlaceholder(); s.applyBannerMargin(); } __yaSetB('isBannerHiddenExt',true); });",
+            "  on('interstitialLoaded', () => { s.ready.interstitial=true; __yaSetB('isInterstitialLoadedExt',true); __yaSetB('isInterstitialLoadFailExt',false); });",
+            "  on('interstitialFailedToLoad', x => { s.ready.interstitial=false; __yaSetB('isInterstitialLoadedExt',false); __yaSetB('isInterstitialLoadFailExt',true); __yaSetS('lastErrorExt',x.message||'Не удалось загрузить межстраничную рекламу'); });",
+            "  on('interstitialShown', () => __yaSetB('isInterstitialShownExt',true));",
+            "  on('interstitialFailedToShow', x => { s.ready.interstitial=false; __yaSetB('isInterstitialFailedToShowExt',true); __yaSetS('lastErrorExt',x.message||'Не удалось показать межстраничную рекламу'); });",
+            "  on('interstitialDismissed', () => { s.ready.interstitial=false; __yaSetB('isInterstitialLoadedExt',false); __yaSetB('isInterstitialDismissedExt',true); });",
+            "  on('rewardedLoaded', () => { s.ready.rewarded=true; __yaSetB('isRewardedLoadedExt',true); __yaSetB('isRewardedLoadFailExt',false); });",
+            "  on('rewardedFailedToLoad', x => { s.ready.rewarded=false; __yaSetB('isRewardedLoadedExt',false); __yaSetB('isRewardedLoadFailExt',true); __yaSetS('lastErrorExt',x.message||'Не удалось загрузить рекламу с наградой'); });",
+            "  on('rewardedShown', () => __yaSetB('isRewardedShownExt',true));",
+            "  on('rewardedFailedToShow', x => { s.ready.rewarded=false; __yaSetB('isRewardedFailedToShowExt',true); __yaSetS('lastErrorExt',x.message||'Не удалось показать рекламу с наградой'); });",
+            "  on('rewarded', x => { __yaSetN('rewardAmountExt',x.amount||1); __yaSetB('isRewardActivatedExt',true); });",
+            "  on('rewardedDismissed', () => { s.ready.rewarded=false; __yaSetB('isRewardedLoadedExt',false); __yaSetB('isRewardedDismissedExt',true); });",
+            "  on('appOpenLoaded', () => { s.ready.appOpen=true; __yaSetB('isOpenAppAdsLoadedExt',true); __yaSetB('isOpenAppAdsLoadFailExt',false); });",
+            "  on('appOpenFailedToLoad', x => { s.ready.appOpen=false; __yaSetB('isOpenAppAdsLoadedExt',false); __yaSetB('isOpenAppAdsLoadFailExt',true); __yaSetS('lastErrorExt',x.message||'Не удалось загрузить рекламу при открытии приложения'); });",
+            "  on('appOpenShown', () => __yaSetB('isOpenAppAdsShownExt',true));",
+            "  on('appOpenFailedToShow', x => { s.ready.appOpen=false; __yaSetB('isOpenAppAdsFailedToShowExt',true); __yaSetS('lastErrorExt',x.message||'Не удалось показать рекламу при открытии приложения'); });",
+            "  on('appOpenDismissed', () => { s.ready.appOpen=false; __yaSetB('isOpenAppAdsLoadedExt',false); __yaSetB('isOpenAppAdslDismissedExt',true); });",
+            "}",
+            "const rewardedBlockId = eventsFunctionContext.getArgument('rewardedBlockId');",
+            "const interstitialBlockId = eventsFunctionContext.getArgument('interstitialBlockId');",
+            "const bannerBlockId = eventsFunctionContext.getArgument('bannerBlockId');",
+            "const openAppBlockId = eventsFunctionContext.getArgument('openAppBlockId');",
+            "const bannerAtTop = eventsFunctionContext.getArgument('bannerAtTop');",
+            "const __yaInitWidthRaw = String(eventsFunctionContext.getArgument('bannerWidth') ?? 'авто').trim().toLowerCase();",
+            "const bannerWidth = (__yaInitWidthRaw === '' || __yaInitWidthRaw === 'авто' || __yaInitWidthRaw === 'auto' || __yaInitWidthRaw === '0') ? 0 : Math.max(0, Number(__yaInitWidthRaw.replace(',', '.')) || 0);",
+            "const bannerHeight = Math.max(0, Number(eventsFunctionContext.getArgument('bannerHeight')) || 0);",
+            "const bannerReserveSpace = eventsFunctionContext.getArgument('bannerReserveSpace');",
+            "const placeholderText = eventsFunctionContext.getArgument('placeholderText');",
+            "const placeholderImageResource = eventsFunctionContext.getArgument('placeholderImageResource');",
+            "const placeholderClickUrl = eventsFunctionContext.getArgument('placeholderClickUrl');",
+            "const placeholderBackgroundColor = eventsFunctionContext.getArgument('placeholderBackgroundColor');",
+            "const placeholderBackgroundOpacity = eventsFunctionContext.getArgument('placeholderBackgroundOpacity');",
+            "const placeholderTextColor = eventsFunctionContext.getArgument('placeholderTextColor');",
+            "const placeholderTextOpacity = eventsFunctionContext.getArgument('placeholderTextOpacity');",
+            "const placeholderFontResource = eventsFunctionContext.getArgument('placeholderFontResource');",
+            "const placeholderTextSize = eventsFunctionContext.getArgument('placeholderTextSize');",
+            "const placeholderBold = eventsFunctionContext.getArgument('placeholderBold');",
+            "const placeholderItalic = eventsFunctionContext.getArgument('placeholderItalic');",
+            "const placeholderUnderlined = eventsFunctionContext.getArgument('placeholderUnderlined');",
+            "const placeholderLineHeight = eventsFunctionContext.getArgument('placeholderLineHeight');",
+            "const placeholderOutlineEnabled = eventsFunctionContext.getArgument('placeholderOutlineEnabled');",
+            "const placeholderOutlineColor = eventsFunctionContext.getArgument('placeholderOutlineColor');",
+            "const placeholderOutlineThickness = eventsFunctionContext.getArgument('placeholderOutlineThickness');",
+            "const placeholderShadowEnabled = eventsFunctionContext.getArgument('placeholderShadowEnabled');",
+            "const placeholderShadowColor = eventsFunctionContext.getArgument('placeholderShadowColor');",
+            "const placeholderShadowDistance = eventsFunctionContext.getArgument('placeholderShadowDistance');",
+            "const placeholderShadowBlur = eventsFunctionContext.getArgument('placeholderShadowBlur');",
+            "const placeholderShadowAngle = eventsFunctionContext.getArgument('placeholderShadowAngle');",
+            "const placeholderShadowOpacity = eventsFunctionContext.getArgument('placeholderShadowOpacity');",
+            "const __yaState = window.__GDevelopYandexAdsExtensionStateV6;",
+            "if (__yaState) {",
+            "  __yaState.runtimeGame = runtimeScene.getGame();",
+            "  __yaState.renderer = runtimeScene.getGame().getRenderer();",
+            "  __yaState.bannerHeight = 100;",
+            "  __yaState.bannerAtTop = Boolean(bannerAtTop);",
+            "  __yaState.reserveSpace = Boolean(bannerReserveSpace);",
+            "  __yaState.placeholderText = String(placeholderText == null ? '' : placeholderText);",
+            "  __yaState.placeholderImageResource = String(placeholderImageResource || '');",
+            "__yaState.placeholderClickUrl = String(placeholderClickUrl || '').trim();",
+            "  __yaState.placeholderImageUrl = '';",
+            "  __yaState.placeholderBackgroundColor = String(placeholderBackgroundColor || '248;250;252');",
+            "  __yaState.placeholderBackgroundOpacity = 255;",
+            "  __yaState.placeholderTextColor = String(placeholderTextColor || '71;85;105');",
+            "  __yaState.placeholderTextOpacity = 255;",
+            "  __yaState.placeholderFontResource = String(placeholderFontResource || '');",
+            "  __yaState.placeholderTextSize = Math.max(1, Number(placeholderTextSize) || 17);",
+            "  const __yaTextStyleRaw = String(placeholderBold == null ? '' : placeholderBold).trim().toLowerCase();",
+            "  const __yaLegacyItalicRaw = String(placeholderItalic == null ? '' : placeholderItalic).trim().toLowerCase();",
+            "  const __yaLegacyItalic = placeholderItalic === true || __yaLegacyItalicRaw === 'true' || __yaLegacyItalicRaw === '1';",
+            "  __yaState.placeholderItalic = __yaTextStyleRaw === 'курсив' || __yaTextStyleRaw === 'italic' || ((__yaTextStyleRaw === 'false' || __yaTextStyleRaw === '') && __yaLegacyItalic);",
+            "  __yaState.placeholderBold = __yaTextStyleRaw === 'жирный' || __yaTextStyleRaw === 'bold' || __yaTextStyleRaw === 'true' || __yaTextStyleRaw === '1';",
+            "  __yaState.placeholderUnderlined = false;",
+            "  __yaState.placeholderLineHeight = 0;",
+            "  __yaState.placeholderOutlineEnabled = false;",
+            "  __yaState.placeholderOutlineColor = '255;255;255';",
+            "  __yaState.placeholderOutlineThickness = 0;",
+            "  __yaState.placeholderShadowEnabled = false;",
+            "  __yaState.placeholderShadowColor = '0;0;0';",
+            "  __yaState.placeholderShadowDistance = 0;",
+            "  __yaState.placeholderShadowBlur = 0;",
+            "  __yaState.placeholderShadowAngle = 0;",
+            "  __yaState.placeholderShadowOpacity = 0;",
+            "  __yaState.applyBannerMargin();",
+            "}",
+            "__yaSetB('isAdsPluginUnavailableExt',!__yaApi);",
+            "if (!__yaApi || typeof __yaApi.initialize !== 'function') {",
+            "  __yaSetS('lastErrorExt','Плагин GDevelopYandexAds недоступен. Соберите и установите Android APK; в браузерном предпросмотре реклама не работает.');",
+            "} else {",
+            "  if (!window.__GDevelopYandexAdsInitPromise) {",
+            "    const config = {rewardedAdUnitId:rewardedBlockId,interstitialAdUnitId:interstitialBlockId,bannerAdUnitId:bannerBlockId,appOpenAdUnitId:openAppBlockId,bannerAtTop:bannerAtTop,bannerWidthDp:bannerWidth,bannerHeightDp:bannerHeight,bannerReserveSpace:false};",
+            "    window.__GDevelopYandexAdsInitPromise = Promise.resolve(__yaApi.initialize(config)).catch(error => { window.__GDevelopYandexAdsInitPromise = null; throw error; });",
+            "  }",
+            "  window.__GDevelopYandexAdsInitPromise.catch(__yaError);",
+            "}"
+          ],
+          "parameterObjects": "",
+          "useStrict": true,
+          "eventsSheetExpanded": false
+        }
+      ],
+      "parameters": [
+        {
+          "description": "ID рекламы с наградой",
+          "name": "rewardedBlockId",
+          "type": "string",
+          "longDescription": "Оставьте пустым, если формат не используется. Тест: demo-rewarded-yandex."
+        },
+        {
+          "description": "ID межстраничной рекламы",
+          "name": "interstitialBlockId",
+          "type": "string",
+          "longDescription": "Оставьте пустым, если формат не используется. Тест: demo-interstitial-yandex."
+        },
+        {
+          "description": "ID баннера",
+          "name": "bannerBlockId",
+          "type": "string",
+          "longDescription": "Оставьте пустым, если баннер не используется. Тест: demo-banner-yandex."
+        },
+        {
+          "description": "ID рекламы при запуске",
+          "name": "openAppBlockId",
+          "type": "string",
+          "longDescription": "Оставьте пустым, если формат не используется. Тест: demo-appopenad-yandex."
+        },
+        {
+          "description": "Расположить баннер сверху",
+          "name": "bannerAtTop",
+          "type": "trueorfalse",
+          "defaultValue": "False",
+          "optional": true,
+          "longDescription": "Ложь — баннер будет расположен снизу."
+        },
+        {
+          "description": "Ширина баннера в dp",
+          "name": "bannerWidth",
+          "type": "stringWithSelector",
+          "defaultValue": "авто",
+          "optional": true,
+          "supplementaryInformation": "[\"авто\",\"320\",\"360\",\"468\",\"728\"]",
+          "longDescription": "«авто» использует ширину устройства. Можно ввести своё число."
+        },
+        {
+          "description": "Внутренний параметр совместимости",
+          "name": "bannerHeight",
+          "type": "expression",
+          "defaultValue": "0",
+          "optional": true,
+          "codeOnly": true,
+          "longDescription": ""
+        },
+        {
+          "description": "Не перекрывать игру баннером",
+          "name": "bannerReserveSpace",
+          "type": "trueorfalse",
+          "defaultValue": "True",
+          "optional": true,
+          "longDescription": "Истина резервирует место под баннер, ложь показывает его поверх игры."
+        },
+        {
+          "description": "Текст заглушки",
+          "name": "placeholderText",
+          "type": "string",
+          "defaultValue": "Реклама загружается",
+          "optional": true,
+          "longDescription": "Оставьте пустым, если на заглушке нужна только картинка."
+        },
+        {
+          "description": "Изображение заглушки",
+          "name": "placeholderImageResource",
+          "type": "imageResource",
+          "defaultValue": "",
+          "optional": true,
+          "longDescription": "Выберите изображение из ресурсов проекта. Оно растягивается на всю площадь."
+        },
+        {
+          "codeOnly": false,
+          "defaultValue": "",
+          "description": "Ссылка заглушки",
+          "longDescription": "Оставьте пустой, чтобы отключить переход. Можно указать адрес без https://.",
+          "name": "placeholderClickUrl",
+          "optional": true,
+          "supplementaryInformation": "",
+          "type": "string"
+        },
+        {
+          "description": "Цвет заглушки",
+          "name": "placeholderBackgroundColor",
+          "optional": true,
+          "defaultValue": "\"248;250;252\"",
+          "type": "color",
+          "codeOnly": false,
+          "longDescription": "Фон используется, когда изображение не выбрано.",
+          "supplementaryInformation": ""
+        },
+        {
+          "description": "Внутренний параметр совместимости",
+          "name": "placeholderBackgroundOpacity",
+          "optional": true,
+          "defaultValue": "255",
+          "type": "expression",
+          "codeOnly": true,
+          "longDescription": ""
+        },
+        {
+          "description": "Цвет текста",
+          "name": "placeholderTextColor",
+          "optional": true,
+          "defaultValue": "\"71;85;105\"",
+          "type": "color",
+          "codeOnly": false,
+          "longDescription": "Цвет текста на заглушке.",
+          "supplementaryInformation": ""
+        },
+        {
+          "description": "Внутренний параметр совместимости",
+          "name": "placeholderTextOpacity",
+          "optional": true,
+          "defaultValue": "255",
+          "type": "expression",
+          "codeOnly": true,
+          "longDescription": ""
+        },
+        {
+          "description": "Шрифт",
+          "name": "placeholderFontResource",
+          "optional": true,
+          "defaultValue": "",
+          "type": "fontResource",
+          "longDescription": "Шрифт из ресурсов проекта. Пустое значение использует системный шрифт."
+        },
+        {
+          "description": "Размер шрифта",
+          "name": "placeholderTextSize",
+          "optional": true,
+          "defaultValue": "17",
+          "type": "expression",
+          "longDescription": "Размер текста в пикселях."
+        },
+        {
+          "description": "Стиль текста",
+          "name": "placeholderBold",
+          "optional": true,
+          "defaultValue": "Жирный",
+          "type": "stringWithSelector",
+          "longDescription": "Выберите обычный, курсивный или жирный текст.",
+          "supplementaryInformation": "[\"Обычный\",\"Курсив\",\"Жирный\"]",
+          "codeOnly": false
+        },
+        {
+          "description": "Внутренний параметр совместимости",
+          "name": "placeholderItalic",
+          "optional": true,
+          "defaultValue": "False",
+          "type": "trueorfalse",
+          "codeOnly": true,
+          "longDescription": ""
+        },
+        {
+          "description": "Внутренний параметр совместимости",
+          "name": "placeholderUnderlined",
+          "optional": true,
+          "defaultValue": "False",
+          "type": "trueorfalse",
+          "codeOnly": true,
+          "longDescription": ""
+        },
+        {
+          "description": "Внутренний параметр совместимости",
+          "name": "placeholderLineHeight",
+          "optional": true,
+          "defaultValue": "0",
+          "type": "expression",
+          "codeOnly": true,
+          "longDescription": ""
+        },
+        {
+          "description": "Внутренний параметр совместимости",
+          "name": "placeholderOutlineEnabled",
+          "optional": true,
+          "defaultValue": "False",
+          "type": "trueorfalse",
+          "codeOnly": true,
+          "longDescription": ""
+        },
+        {
+          "description": "Внутренний параметр совместимости",
+          "name": "placeholderOutlineColor",
+          "optional": true,
+          "defaultValue": "\"255;255;255\"",
+          "type": "color",
+          "codeOnly": true,
+          "longDescription": "",
+          "supplementaryInformation": ""
+        },
+        {
+          "description": "Внутренний параметр совместимости",
+          "name": "placeholderOutlineThickness",
+          "optional": true,
+          "defaultValue": "2",
+          "type": "expression",
+          "codeOnly": true,
+          "longDescription": ""
+        },
+        {
+          "description": "Внутренний параметр совместимости",
+          "name": "placeholderShadowEnabled",
+          "optional": true,
+          "defaultValue": "False",
+          "type": "trueorfalse",
+          "codeOnly": true,
+          "longDescription": ""
+        },
+        {
+          "description": "Внутренний параметр совместимости",
+          "name": "placeholderShadowColor",
+          "optional": true,
+          "defaultValue": "\"0;0;0\"",
+          "type": "color",
+          "codeOnly": true,
+          "longDescription": "",
+          "supplementaryInformation": ""
+        },
+        {
+          "description": "Внутренний параметр совместимости",
+          "name": "placeholderShadowDistance",
+          "optional": true,
+          "defaultValue": "4",
+          "type": "expression",
+          "codeOnly": true,
+          "longDescription": ""
+        },
+        {
+          "description": "Внутренний параметр совместимости",
+          "name": "placeholderShadowBlur",
+          "optional": true,
+          "defaultValue": "2",
+          "type": "expression",
+          "codeOnly": true,
+          "longDescription": ""
+        },
+        {
+          "description": "Внутренний параметр совместимости",
+          "name": "placeholderShadowAngle",
+          "optional": true,
+          "defaultValue": "90",
+          "type": "expression",
+          "codeOnly": true,
+          "longDescription": ""
+        },
+        {
+          "description": "Внутренний параметр совместимости",
+          "name": "placeholderShadowOpacity",
+          "optional": true,
+          "defaultValue": "127",
+          "type": "expression",
+          "codeOnly": true,
+          "longDescription": ""
+        }
+      ],
+      "objectGroups": []
+    },
+    {
+      "description": "Передаёт в SDK согласие пользователя на обработку данных для рекламы. Вызывайте при каждом запуске приложения.",
+      "fullName": "Установить согласие пользователя",
+      "functionType": "Action",
+      "group": "1. Подключение и настройки",
+      "name": "setUserConsent",
+      "sentence": "Согласие пользователя на рекламу: _PARAM1_",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::JsCode",
+          "inlineCode": [
+            "const __yaVars = runtimeScene.getGame().getVariablesForExtension('YandexMobileAds');",
+            "const __yaSetB = (n,v) => __yaVars.get(n).setBoolean(Boolean(v));",
+            "const __yaSetN = (n,v) => __yaVars.get(n).setNumber(Number(v)||0);",
+            "const __yaSetS = (n,v) => __yaVars.get(n).setString(v == null ? '' : String(v));",
+            "const __yaApi = window.GDevelopYandexAds || window.SurvivalYandexAds || window.YandexAds;",
+            "const __yaError = (e) => { __yaSetS('lastErrorExt', e && (e.message || e.toString) ? (e.message || e.toString()) : String(e || 'Неизвестная ошибка рекламы')); };",
+            "",
+            "const value=eventsFunctionContext.getArgument('setUserConsent');",
+            "if(__yaApi && __yaApi.setPrivacy) __yaApi.setPrivacy({userConsent:value}).catch(__yaError);"
+          ],
+          "parameterObjects": "",
+          "useStrict": true,
+          "eventsSheetExpanded": false
+        }
+      ],
+      "parameters": [
+        {
+          "description": "Пользователь дал согласие на обработку данных для рекламы",
+          "name": "setUserConsent",
+          "type": "trueorfalse",
+          "defaultValue": "True",
+          "optional": true
+        }
+      ],
+      "objectGroups": []
+    },
+    {
+      "description": "Настраивает согласие GDPR, детский режим и использование геолокации. Желательно выполнить до инициализации SDK.",
+      "fullName": "Настроить конфиденциальность и детский режим",
+      "functionType": "Action",
+      "group": "1. Подключение и настройки",
+      "name": "configurePrivacy",
+      "sentence": "Настройки рекламы: согласие _PARAM1_, детский режим _PARAM2_, геолокация _PARAM3_",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::JsCode",
+          "inlineCode": [
+            "const __yaVars = runtimeScene.getGame().getVariablesForExtension('YandexMobileAds');",
+            "const __yaSetB = (n,v) => __yaVars.get(n).setBoolean(Boolean(v));",
+            "const __yaSetN = (n,v) => __yaVars.get(n).setNumber(Number(v)||0);",
+            "const __yaSetS = (n,v) => __yaVars.get(n).setString(v == null ? '' : String(v));",
+            "const __yaApi = window.GDevelopYandexAds || window.SurvivalYandexAds || window.YandexAds;",
+            "const __yaError = (e) => { __yaSetS('lastErrorExt', e && (e.message || e.toString) ? (e.message || e.toString()) : String(e || 'Неизвестная ошибка рекламы')); };",
+            "",
+            "if(__yaApi && __yaApi.setPrivacy) __yaApi.setPrivacy({userConsent:eventsFunctionContext.getArgument('userConsent'),ageRestricted:eventsFunctionContext.getArgument('ageRestricted'),locationTracking:eventsFunctionContext.getArgument('locationTracking')}).catch(__yaError);"
+          ],
+          "parameterObjects": "",
+          "useStrict": true,
+          "eventsSheetExpanded": false
+        }
+      ],
+      "parameters": [
+        {
+          "description": "Пользователь дал согласие на обработку данных для рекламы",
+          "name": "userConsent",
+          "type": "trueorfalse",
+          "defaultValue": "True",
+          "optional": true
+        },
+        {
+          "description": "Детский режим / пользователь с возрастными ограничениями",
+          "name": "ageRestricted",
+          "type": "trueorfalse",
+          "defaultValue": "False",
+          "optional": true
+        },
+        {
+          "description": "Разрешить SDK использовать геолокацию",
+          "name": "locationTracking",
+          "type": "trueorfalse",
+          "defaultValue": "False",
+          "optional": true
+        }
+      ],
+      "objectGroups": []
+    },
+    {
+      "description": "Начинает загрузку адаптивного баннера. Сам баннер появится после действия «Показать баннер после загрузки».",
+      "fullName": "Загрузить баннер",
+      "functionType": "Action",
+      "group": "2. Баннер",
+      "name": "LoadBanner",
+      "sentence": "Загрузить баннер _PARAM1_, ширина _PARAM2_",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::JsCode",
+          "inlineCode": [
+            "const __yaVars = runtimeScene.getGame().getVariablesForExtension('YandexMobileAds');",
+            "const __yaSetB = (n,v) => __yaVars.get(n).setBoolean(Boolean(v));",
+            "const __yaSetN = (n,v) => __yaVars.get(n).setNumber(Number(v)||0);",
+            "const __yaSetS = (n,v) => __yaVars.get(n).setString(v == null ? '' : String(v));",
+            "const __yaApi = window.GDevelopYandexAds || window.SurvivalYandexAds || window.YandexAds;",
+            "const __yaError = (e) => { __yaSetS('lastErrorExt', e && (e.message || e.toString) ? (e.message || e.toString()) : String(e || 'Неизвестная ошибка рекламы')); };",
+            "const __yaAfterInit = (fn) => {",
+            "  if (!__yaApi) { __yaError('Плагин рекламы недоступен. Проверяйте установленный Android APK, а не предпросмотр в браузере.'); return Promise.resolve(); }",
+            "  return Promise.resolve(window.__GDevelopYandexAdsInitPromise).then(fn).catch(__yaError);",
+            "};",
+            "const __yaWidthRaw = String(eventsFunctionContext.getArgument('widthDp') ?? 'авто').trim().toLowerCase();",
+            "const __yaWidthDp = (__yaWidthRaw === '' || __yaWidthRaw === 'авто' || __yaWidthRaw === 'auto' || __yaWidthRaw === '0') ? 0 : Math.max(0, Number(__yaWidthRaw.replace(',', '.')) || 0);",
+            "const __yaPositionRaw = String(eventsFunctionContext.getArgument('position') ?? 'снизу').trim().toLowerCase();",
+            "const __yaPosition = (__yaPositionRaw === 'сверху' || __yaPositionRaw === 'top') ? 'top' : 'bottom';",
+            "__yaSetB('isBannerLoadFailExt',false); __yaSetB('isBannerLoadedExt',false);",
+            "__yaAfterInit(() => __yaApi.loadBanner({position:__yaPosition,widthDp:__yaWidthDp,autoShow:false}));"
+          ],
+          "parameterObjects": "",
+          "useStrict": true,
+          "eventsSheetExpanded": false
+        }
+      ],
+      "parameters": [
+        {
+          "description": "Где разместить баннер",
+          "name": "position",
+          "type": "stringWithSelector",
+          "defaultValue": "снизу",
+          "optional": true,
+          "supplementaryInformation": "[\"снизу\",\"сверху\"]"
+        },
+        {
+          "description": "Ширина в dp. «авто» = ширина устройства; также можно ввести своё число.",
+          "name": "widthDp",
+          "type": "stringWithSelector",
+          "defaultValue": "авто",
+          "optional": true,
+          "supplementaryInformation": "[\"авто\",\"320\",\"360\",\"468\",\"728\"]"
+        }
+      ],
+      "objectGroups": []
+    },
+    {
+      "description": "Показывает уже загруженный баннер. Если загрузка ещё идёт, баннер появится автоматически сразу после её завершения.",
+      "fullName": "Показать баннер после загрузки",
+      "functionType": "Action",
+      "group": "2. Баннер",
+      "name": "ShowBanner",
+      "sentence": "Показать баннер сразу после загрузки",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::JsCode",
+          "inlineCode": [
+            "const __yaVars = runtimeScene.getGame().getVariablesForExtension('YandexMobileAds');",
+            "const __yaSetB = (n,v) => __yaVars.get(n).setBoolean(Boolean(v));",
+            "const __yaSetN = (n,v) => __yaVars.get(n).setNumber(Number(v)||0);",
+            "const __yaSetS = (n,v) => __yaVars.get(n).setString(v == null ? '' : String(v));",
+            "const __yaApi = window.GDevelopYandexAds || window.SurvivalYandexAds || window.YandexAds;",
+            "const __yaError = (e) => { __yaSetS('lastErrorExt', e && (e.message || e.toString) ? (e.message || e.toString()) : String(e || 'Неизвестная ошибка рекламы')); };",
+            "const __yaAfterInit = (fn) => {",
+            "  if (!__yaApi) { __yaError('Плагин рекламы недоступен. Проверяйте установленный Android APK, а не предпросмотр в браузере.'); return Promise.resolve(); }",
+            "  return Promise.resolve(window.__GDevelopYandexAdsInitPromise).then(fn).catch(__yaError);",
+            "};",
+            "__yaSetB('isBannerHiddenExt',false);",
+            "__yaAfterInit(() => __yaApi.showBanner());"
+          ],
+          "parameterObjects": "",
+          "useStrict": true,
+          "eventsSheetExpanded": false
+        }
+      ],
+      "parameters": [],
+      "objectGroups": []
+    },
+    {
+      "description": "Самый простой вариант для запуска: ждёт инициализацию SDK, начинает загрузку баннера и показывает его сразу после готовности.",
+      "fullName": "Загрузить и показать баннер",
+      "functionType": "Action",
+      "group": "2. Баннер",
+      "name": "LoadAndShowBanner",
+      "sentence": "Загрузить и показать баннер _PARAM1_, ширина _PARAM2_",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::JsCode",
+          "inlineCode": [
+            "const __yaVars = runtimeScene.getGame().getVariablesForExtension('YandexMobileAds');",
+            "const __yaSetB = (n,v) => __yaVars.get(n).setBoolean(Boolean(v));",
+            "const __yaSetN = (n,v) => __yaVars.get(n).setNumber(Number(v)||0);",
+            "const __yaSetS = (n,v) => __yaVars.get(n).setString(v == null ? '' : String(v));",
+            "const __yaApi = window.GDevelopYandexAds || window.SurvivalYandexAds || window.YandexAds;",
+            "const __yaError = (e) => { __yaSetS('lastErrorExt', e && (e.message || e.toString) ? (e.message || e.toString()) : String(e || 'Неизвестная ошибка рекламы')); };",
+            "const __yaAfterInit = (fn) => {",
+            "  if (!__yaApi) { __yaError('Плагин рекламы недоступен. Проверяйте установленный Android APK, а не предпросмотр в браузере.'); return Promise.resolve(); }",
+            "  return Promise.resolve(window.__GDevelopYandexAdsInitPromise).then(fn).catch(__yaError);",
+            "};",
+            "const __yaWidthRaw = String(eventsFunctionContext.getArgument('widthDp') ?? 'авто').trim().toLowerCase();",
+            "const __yaWidthDp = (__yaWidthRaw === '' || __yaWidthRaw === 'авто' || __yaWidthRaw === 'auto' || __yaWidthRaw === '0') ? 0 : Math.max(0, Number(__yaWidthRaw.replace(',', '.')) || 0);",
+            "const __yaPositionRaw = String(eventsFunctionContext.getArgument('position') ?? 'снизу').trim().toLowerCase();",
+            "const __yaPosition = (__yaPositionRaw === 'сверху' || __yaPositionRaw === 'top') ? 'top' : 'bottom';",
+            "__yaSetB('isBannerLoadFailExt',false); __yaSetB('isBannerLoadedExt',false); __yaSetB('isBannerHiddenExt',false);",
+            "__yaAfterInit(() => Promise.resolve(__yaApi.loadBanner({position:__yaPosition,widthDp:__yaWidthDp,autoShow:false})).then(() => __yaApi.showBanner()));"
+          ],
+          "parameterObjects": "",
+          "useStrict": true,
+          "eventsSheetExpanded": false
+        }
+      ],
+      "parameters": [
+        {
+          "description": "Где разместить баннер",
+          "name": "position",
+          "type": "stringWithSelector",
+          "defaultValue": "снизу",
+          "optional": true,
+          "supplementaryInformation": "[\"снизу\",\"сверху\"]"
+        },
+        {
+          "description": "Ширина в dp. «авто» = ширина устройства; также можно ввести своё число.",
+          "name": "widthDp",
+          "type": "stringWithSelector",
+          "defaultValue": "авто",
+          "optional": true,
+          "supplementaryInformation": "[\"авто\",\"320\",\"360\",\"468\",\"728\"]"
+        }
+      ],
+      "objectGroups": []
+    },
+    {
+      "description": "Удаляет текущий баннер, сразу показывает настроенную заглушку, ждёт указанное количество секунд, затем загружает и показывает новый баннер. Пауза 0 секунд сохраняет обычное быстрое обновление.",
+      "fullName": "Обновить баннер с паузой",
+      "functionType": "Action",
+      "group": "2. Баннер",
+      "name": "reloadBanner",
+      "sentence": "Обновить баннер: удалить старый, показывать заглушку и подождать _PARAM1_ сек.",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::JsCode",
+          "inlineCode": [
+            "const __yaVars = runtimeScene.getGame().getVariablesForExtension('YandexMobileAds');",
+            "const __yaSetB = (n,v) => __yaVars.get(n).setBoolean(Boolean(v));",
+            "const __yaSetN = (n,v) => __yaVars.get(n).setNumber(Number(v)||0);",
+            "const __yaSetS = (n,v) => __yaVars.get(n).setString(v == null ? '' : String(v));",
+            "const __yaApi = window.GDevelopYandexAds || window.SurvivalYandexAds || window.YandexAds;",
+            "const __yaError = (e) => { __yaSetS('lastErrorExt', e && (e.message || e.toString) ? (e.message || e.toString()) : String(e || 'Неизвестная ошибка рекламы')); };",
+            "const __yaAfterInit = (fn) => {",
+            "  if (!__yaApi) { __yaError('Плагин рекламы недоступен. Проверяйте установленный Android APK, а не предпросмотр в браузере.'); return Promise.resolve(); }",
+            "  return Promise.resolve(window.__GDevelopYandexAdsInitPromise).then(fn).catch(__yaError);",
+            "};",
+            "",
+            "const __yaPauseRaw = String(eventsFunctionContext.getArgument('pauseSeconds') ?? '0').trim().replace(',', '.');",
+            "const __yaPauseSeconds = Math.max(0, Number(__yaPauseRaw) || 0);",
+            "const __yaPauseMilliseconds = Math.round(__yaPauseSeconds * 1000);",
+            "",
+            "__yaSetB('isBannerLoadFailExt',false);",
+            "__yaSetB('isBannerLoadedExt',false);",
+            "__yaSetB('isBannerShownExt',false);",
+            "__yaSetB('isBannerHiddenExt',false);",
+            "",
+            "const __yaRefreshState = window.__GDevelopYandexAdsExtensionStateV6;",
+            "let __yaRefreshSequence = 0;",
+            "if (__yaRefreshState) {",
+            "  __yaRefreshState.ready.banner = false;",
+            "  __yaRefreshState.bannerRefreshSequence = (Number(__yaRefreshState.bannerRefreshSequence) || 0) + 1;",
+            "  __yaRefreshSequence = __yaRefreshState.bannerRefreshSequence;",
+            "  __yaRefreshState.reloadingBanner = true;",
+            "  __yaRefreshState.bannerVisible = true;",
+            "  __yaRefreshState.applyBannerMargin && __yaRefreshState.applyBannerMargin();",
+            "  __yaRefreshState.showRefreshPlaceholder && __yaRefreshState.showRefreshPlaceholder();",
+            "}",
+            "",
+            "__yaAfterInit(async () => {",
+            "  await Promise.resolve(__yaApi.destroyBanner());",
+            "",
+            "  if (__yaPauseMilliseconds > 0) {",
+            "    await new Promise(resolve => window.setTimeout(resolve, __yaPauseMilliseconds));",
+            "  }",
+            "",
+            "  if (__yaRefreshState && __yaRefreshState.bannerRefreshSequence !== __yaRefreshSequence) return;",
+            "",
+            "  await Promise.resolve(__yaApi.loadBanner({autoShow:false}));",
+            "",
+            "  if (__yaRefreshState && __yaRefreshState.bannerRefreshSequence !== __yaRefreshSequence) return;",
+            "",
+            "  await Promise.resolve(__yaApi.showBanner());",
+            "});"
+          ],
+          "parameterObjects": "",
+          "useStrict": true,
+          "eventsSheetExpanded": false
+        }
+      ],
+      "parameters": [
+        {
+          "codeOnly": false,
+          "defaultValue": "0",
+          "description": "Пауза в секундах перед загрузкой нового баннера. Введите любое число, например 0, 2 или 1.5. Во время паузы показывается заглушка.",
+          "longDescription": "0 = без дополнительной паузы. Отрицательные и некорректные значения считаются равными 0.",
+          "name": "pauseSeconds",
+          "optional": true,
+          "supplementaryInformation": "",
+          "type": "expression"
+        }
+      ],
+      "objectGroups": []
+    },
+    {
+      "description": "Временно скрывает баннер, но оставляет его загруженным в памяти.",
+      "fullName": "Скрыть баннер",
+      "functionType": "Action",
+      "group": "2. Баннер",
+      "name": "hideBanner",
+      "sentence": "Скрыть баннер",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::JsCode",
+          "inlineCode": [
+            "const __yaVars = runtimeScene.getGame().getVariablesForExtension('YandexMobileAds');",
+            "const __yaSetB = (n,v) => __yaVars.get(n).setBoolean(Boolean(v));",
+            "const __yaSetN = (n,v) => __yaVars.get(n).setNumber(Number(v)||0);",
+            "const __yaSetS = (n,v) => __yaVars.get(n).setString(v == null ? '' : String(v));",
+            "const __yaApi = window.GDevelopYandexAds || window.SurvivalYandexAds || window.YandexAds;",
+            "const __yaError = (e) => { __yaSetS('lastErrorExt', e && (e.message || e.toString) ? (e.message || e.toString()) : String(e || 'Неизвестная ошибка рекламы')); };",
+            "const __yaAfterInit = (fn) => {",
+            "  if (!__yaApi) { __yaError('Плагин рекламы недоступен. Проверяйте установленный Android APK, а не предпросмотр в браузере.'); return Promise.resolve(); }",
+            "  return Promise.resolve(window.__GDevelopYandexAdsInitPromise).then(fn).catch(__yaError);",
+            "};",
+            "__yaSetB('isBannerShownExt',false);",
+            "const __yaMarginState=window.__GDevelopYandexAdsExtensionStateV6;",
+            "if(__yaMarginState){__yaMarginState.bannerVisible=false;__yaMarginState.applyBannerMargin&&__yaMarginState.applyBannerMargin();}",
+            "__yaAfterInit(() => __yaApi.hideBanner());"
+          ],
+          "parameterObjects": "",
+          "useStrict": true,
+          "eventsSheetExpanded": false
+        }
+      ],
+      "parameters": [],
+      "objectGroups": []
+    },
+    {
+      "description": "Удаляет баннер и освобождает нативные ресурсы. Для повторного показа потребуется снова загрузить баннер.",
+      "fullName": "Удалить баннер из памяти",
+      "functionType": "Action",
+      "group": "2. Баннер",
+      "name": "destroyBanner",
+      "sentence": "Удалить баннер из памяти",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::JsCode",
+          "inlineCode": [
+            "const __yaVars = runtimeScene.getGame().getVariablesForExtension('YandexMobileAds');",
+            "const __yaSetB = (n,v) => __yaVars.get(n).setBoolean(Boolean(v));",
+            "const __yaSetN = (n,v) => __yaVars.get(n).setNumber(Number(v)||0);",
+            "const __yaSetS = (n,v) => __yaVars.get(n).setString(v == null ? '' : String(v));",
+            "const __yaApi = window.GDevelopYandexAds || window.SurvivalYandexAds || window.YandexAds;",
+            "const __yaError = (e) => { __yaSetS('lastErrorExt', e && (e.message || e.toString) ? (e.message || e.toString()) : String(e || 'Неизвестная ошибка рекламы')); };",
+            "const __yaAfterInit = (fn) => {",
+            "  if (!__yaApi) { __yaError('Плагин рекламы недоступен. Проверяйте установленный Android APK, а не предпросмотр в браузере.'); return Promise.resolve(); }",
+            "  return Promise.resolve(window.__GDevelopYandexAdsInitPromise).then(fn).catch(__yaError);",
+            "};",
+            "window.__GDevelopYandexAdsExtensionStateV6 && (window.__GDevelopYandexAdsExtensionStateV6.ready.banner=false);",
+            "__yaSetB('isBannerLoadedExt',false);",
+            "const __yaMarginState=window.__GDevelopYandexAdsExtensionStateV6;",
+            "if(__yaMarginState){__yaMarginState.bannerVisible=false;__yaMarginState.applyBannerMargin&&__yaMarginState.applyBannerMargin();}",
+            "__yaAfterInit(() => __yaApi.destroyBanner());"
+          ],
+          "parameterObjects": "",
+          "useStrict": true,
+          "eventsSheetExpanded": false
+        }
+      ],
+      "parameters": [],
+      "objectGroups": []
+    },
+    {
+      "description": "Заранее загружает полноэкранную межстраничную рекламу, чтобы она открылась без задержки.",
+      "fullName": "Предзагрузить межстраничную рекламу",
+      "functionType": "Action",
+      "group": "3. Межстраничная реклама",
+      "name": "loadInterstitial",
+      "sentence": "Предзагрузить межстраничную рекламу",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::JsCode",
+          "inlineCode": [
+            "const __yaVars = runtimeScene.getGame().getVariablesForExtension('YandexMobileAds');",
+            "const __yaSetB = (n,v) => __yaVars.get(n).setBoolean(Boolean(v));",
+            "const __yaSetN = (n,v) => __yaVars.get(n).setNumber(Number(v)||0);",
+            "const __yaSetS = (n,v) => __yaVars.get(n).setString(v == null ? '' : String(v));",
+            "const __yaApi = window.GDevelopYandexAds || window.SurvivalYandexAds || window.YandexAds;",
+            "const __yaError = (e) => { __yaSetS('lastErrorExt', e && (e.message || e.toString) ? (e.message || e.toString()) : String(e || 'Неизвестная ошибка рекламы')); };",
+            "const __yaAfterInit = (fn) => {",
+            "  if (!__yaApi) { __yaError('Плагин рекламы недоступен. Проверяйте установленный Android APK, а не предпросмотр в браузере.'); return Promise.resolve(); }",
+            "  return Promise.resolve(window.__GDevelopYandexAdsInitPromise).then(fn).catch(__yaError);",
+            "};",
+            "__yaSetB('isInterstitialLoadFailExt',false); __yaSetB('isInterstitialLoadedExt',false);",
+            "__yaAfterInit(() => __yaApi.loadInterstitial());"
+          ],
+          "parameterObjects": "",
+          "useStrict": true,
+          "eventsSheetExpanded": false
+        }
+      ],
+      "parameters": [],
+      "objectGroups": []
+    },
+    {
+      "description": "Показывает межстраничную рекламу. Если она ещё не готова, расширение само дождётся загрузки.",
+      "fullName": "Показать межстраничную рекламу",
+      "functionType": "Action",
+      "group": "3. Межстраничная реклама",
+      "name": "ShowInterstitial",
+      "sentence": "Показать межстраничную рекламу, когда она будет готова",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::JsCode",
+          "inlineCode": [
+            "const __yaVars = runtimeScene.getGame().getVariablesForExtension('YandexMobileAds');",
+            "const __yaSetB = (n,v) => __yaVars.get(n).setBoolean(Boolean(v));",
+            "const __yaSetN = (n,v) => __yaVars.get(n).setNumber(Number(v)||0);",
+            "const __yaSetS = (n,v) => __yaVars.get(n).setString(v == null ? '' : String(v));",
+            "const __yaApi = window.GDevelopYandexAds || window.SurvivalYandexAds || window.YandexAds;",
+            "const __yaError = (e) => { __yaSetS('lastErrorExt', e && (e.message || e.toString) ? (e.message || e.toString()) : String(e || 'Неизвестная ошибка рекламы')); };",
+            "const __yaAfterInit = (fn) => {",
+            "  if (!__yaApi) { __yaError('Плагин рекламы недоступен. Проверяйте установленный Android APK, а не предпросмотр в браузере.'); return Promise.resolve(); }",
+            "  return Promise.resolve(window.__GDevelopYandexAdsInitPromise).then(fn).catch(__yaError);",
+            "};",
+            "__yaSetB('isInterstitialShownExt',false); __yaSetB('isInterstitialDismissedExt',false); __yaSetB('isInterstitialFailedToShowExt',false);",
+            "__yaAfterInit(() => {",
+            "  const s=window.__GDevelopYandexAdsExtensionStateV6;",
+            "  if(s && s.ready.interstitial) return __yaApi.showInterstitial();",
+            "  return new Promise((resolve,reject) => {",
+            "    const h=()=>{ window.removeEventListener('gdevelop:yandex:interstitialLoaded',h); Promise.resolve(__yaApi.showInterstitial()).then(resolve,reject); };",
+            "    window.addEventListener('gdevelop:yandex:interstitialLoaded',h);",
+            "    Promise.resolve(__yaApi.loadInterstitial()).catch(e=>{ window.removeEventListener('gdevelop:yandex:interstitialLoaded',h); reject(e); });",
+            "  });",
+            "});"
+          ],
+          "parameterObjects": "",
+          "useStrict": true,
+          "eventsSheetExpanded": false
+        }
+      ],
+      "parameters": [],
+      "objectGroups": []
+    },
+    {
+      "description": "Заранее загружает видео с наградой.",
+      "fullName": "Предзагрузить рекламу с наградой",
+      "functionType": "Action",
+      "group": "4. Реклама с наградой",
+      "name": "LoadRewardedVideo",
+      "sentence": "Предзагрузить рекламу с наградой",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::JsCode",
+          "inlineCode": [
+            "const __yaVars = runtimeScene.getGame().getVariablesForExtension('YandexMobileAds');",
+            "const __yaSetB = (n,v) => __yaVars.get(n).setBoolean(Boolean(v));",
+            "const __yaSetN = (n,v) => __yaVars.get(n).setNumber(Number(v)||0);",
+            "const __yaSetS = (n,v) => __yaVars.get(n).setString(v == null ? '' : String(v));",
+            "const __yaApi = window.GDevelopYandexAds || window.SurvivalYandexAds || window.YandexAds;",
+            "const __yaError = (e) => { __yaSetS('lastErrorExt', e && (e.message || e.toString) ? (e.message || e.toString()) : String(e || 'Неизвестная ошибка рекламы')); };",
+            "const __yaAfterInit = (fn) => {",
+            "  if (!__yaApi) { __yaError('Плагин рекламы недоступен. Проверяйте установленный Android APK, а не предпросмотр в браузере.'); return Promise.resolve(); }",
+            "  return Promise.resolve(window.__GDevelopYandexAdsInitPromise).then(fn).catch(__yaError);",
+            "};",
+            "__yaSetB('isRewardedLoadFailExt',false); __yaSetB('isRewardedLoadedExt',false);",
+            "__yaAfterInit(() => __yaApi.loadRewarded());"
+          ],
+          "parameterObjects": "",
+          "useStrict": true,
+          "eventsSheetExpanded": false
+        }
+      ],
+      "parameters": [],
+      "objectGroups": []
+    },
+    {
+      "description": "Показывает рекламу с наградой. Награду выдавайте только по условию «Пользователь получил награду».",
+      "fullName": "Показать рекламу с наградой",
+      "functionType": "Action",
+      "group": "4. Реклама с наградой",
+      "name": "ShowRewardedVideo",
+      "sentence": "Показать рекламу с наградой, когда она будет готова",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::JsCode",
+          "inlineCode": [
+            "const __yaVars = runtimeScene.getGame().getVariablesForExtension('YandexMobileAds');",
+            "const __yaSetB = (n,v) => __yaVars.get(n).setBoolean(Boolean(v));",
+            "const __yaSetN = (n,v) => __yaVars.get(n).setNumber(Number(v)||0);",
+            "const __yaSetS = (n,v) => __yaVars.get(n).setString(v == null ? '' : String(v));",
+            "const __yaApi = window.GDevelopYandexAds || window.SurvivalYandexAds || window.YandexAds;",
+            "const __yaError = (e) => { __yaSetS('lastErrorExt', e && (e.message || e.toString) ? (e.message || e.toString()) : String(e || 'Неизвестная ошибка рекламы')); };",
+            "const __yaAfterInit = (fn) => {",
+            "  if (!__yaApi) { __yaError('Плагин рекламы недоступен. Проверяйте установленный Android APK, а не предпросмотр в браузере.'); return Promise.resolve(); }",
+            "  return Promise.resolve(window.__GDevelopYandexAdsInitPromise).then(fn).catch(__yaError);",
+            "};",
+            "__yaSetB('isRewardedShownExt',false); __yaSetB('isRewardedDismissedExt',false); __yaSetB('isRewardActivatedExt',false); __yaSetB('isRewardedFailedToShowExt',false); __yaSetN('rewardAmountExt',0);",
+            "__yaAfterInit(() => {",
+            "  const s=window.__GDevelopYandexAdsExtensionStateV6;",
+            "  if(s && s.ready.rewarded) return __yaApi.showRewarded();",
+            "  return new Promise((resolve,reject) => {",
+            "    const h=()=>{ window.removeEventListener('gdevelop:yandex:rewardedLoaded',h); Promise.resolve(__yaApi.showRewarded()).then(resolve,reject); };",
+            "    window.addEventListener('gdevelop:yandex:rewardedLoaded',h);",
+            "    Promise.resolve(__yaApi.loadRewarded()).catch(e=>{ window.removeEventListener('gdevelop:yandex:rewardedLoaded',h); reject(e); });",
+            "  });",
+            "});"
+          ],
+          "parameterObjects": "",
+          "useStrict": true,
+          "eventsSheetExpanded": false
+        }
+      ],
+      "parameters": [],
+      "objectGroups": []
+    },
+    {
+      "description": "Загружает рекламу формата App Open для показа при открытии или возвращении в приложение.",
+      "fullName": "Предзагрузить рекламу при открытии приложения",
+      "functionType": "Action",
+      "group": "5. Реклама при запуске",
+      "name": "loadOpenAppAds",
+      "sentence": "Предзагрузить рекламу при открытии приложения",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::JsCode",
+          "inlineCode": [
+            "const __yaVars = runtimeScene.getGame().getVariablesForExtension('YandexMobileAds');",
+            "const __yaSetB = (n,v) => __yaVars.get(n).setBoolean(Boolean(v));",
+            "const __yaSetN = (n,v) => __yaVars.get(n).setNumber(Number(v)||0);",
+            "const __yaSetS = (n,v) => __yaVars.get(n).setString(v == null ? '' : String(v));",
+            "const __yaApi = window.GDevelopYandexAds || window.SurvivalYandexAds || window.YandexAds;",
+            "const __yaError = (e) => { __yaSetS('lastErrorExt', e && (e.message || e.toString) ? (e.message || e.toString()) : String(e || 'Неизвестная ошибка рекламы')); };",
+            "const __yaAfterInit = (fn) => {",
+            "  if (!__yaApi) { __yaError('Плагин рекламы недоступен. Проверяйте установленный Android APK, а не предпросмотр в браузере.'); return Promise.resolve(); }",
+            "  return Promise.resolve(window.__GDevelopYandexAdsInitPromise).then(fn).catch(__yaError);",
+            "};",
+            "__yaSetB('isOpenAppAdsLoadFailExt',false); __yaSetB('isOpenAppAdsLoadedExt',false);",
+            "__yaAfterInit(() => __yaApi.loadAppOpen());"
+          ],
+          "parameterObjects": "",
+          "useStrict": true,
+          "eventsSheetExpanded": false
+        }
+      ],
+      "parameters": [],
+      "objectGroups": []
+    },
+    {
+      "description": "Показывает App Open рекламу. Если она ещё не готова, расширение само дождётся загрузки.",
+      "fullName": "Показать рекламу при открытии приложения",
+      "functionType": "Action",
+      "group": "5. Реклама при запуске",
+      "name": "showOpenAppAds",
+      "sentence": "Показать рекламу при открытии, когда она будет готова",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::JsCode",
+          "inlineCode": [
+            "const __yaVars = runtimeScene.getGame().getVariablesForExtension('YandexMobileAds');",
+            "const __yaSetB = (n,v) => __yaVars.get(n).setBoolean(Boolean(v));",
+            "const __yaSetN = (n,v) => __yaVars.get(n).setNumber(Number(v)||0);",
+            "const __yaSetS = (n,v) => __yaVars.get(n).setString(v == null ? '' : String(v));",
+            "const __yaApi = window.GDevelopYandexAds || window.SurvivalYandexAds || window.YandexAds;",
+            "const __yaError = (e) => { __yaSetS('lastErrorExt', e && (e.message || e.toString) ? (e.message || e.toString()) : String(e || 'Неизвестная ошибка рекламы')); };",
+            "const __yaAfterInit = (fn) => {",
+            "  if (!__yaApi) { __yaError('Плагин рекламы недоступен. Проверяйте установленный Android APK, а не предпросмотр в браузере.'); return Promise.resolve(); }",
+            "  return Promise.resolve(window.__GDevelopYandexAdsInitPromise).then(fn).catch(__yaError);",
+            "};",
+            "__yaSetB('isOpenAppAdsShownExt',false); __yaSetB('isOpenAppAdslDismissedExt',false); __yaSetB('isOpenAppAdsFailedToShowExt',false);",
+            "__yaAfterInit(() => {",
+            "  const s=window.__GDevelopYandexAdsExtensionStateV6;",
+            "  if(s && s.ready.appOpen) return __yaApi.showAppOpen();",
+            "  return new Promise((resolve,reject) => {",
+            "    const h=()=>{ window.removeEventListener('gdevelop:yandex:appOpenLoaded',h); Promise.resolve(__yaApi.showAppOpen()).then(resolve,reject); };",
+            "    window.addEventListener('gdevelop:yandex:appOpenLoaded',h);",
+            "    Promise.resolve(__yaApi.loadAppOpen()).catch(e=>{ window.removeEventListener('gdevelop:yandex:appOpenLoaded',h); reject(e); });",
+            "  });",
+            "});"
+          ],
+          "parameterObjects": "",
+          "useStrict": true,
+          "eventsSheetExpanded": false
+        }
+      ],
+      "parameters": [],
+      "objectGroups": []
+    },
+    {
+      "description": "Сбрасывает служебные состояния показа, закрытия и ошибок. Флаг награды вручную сбрасывать обычно не требуется: условие получения награды делает это автоматически.",
+      "fullName": "Сбросить одноразовые состояния рекламы",
+      "functionType": "Action",
+      "group": "6. Служебные действия",
+      "name": "resetEventFlags",
+      "sentence": "Сбросить одноразовые состояния рекламы",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::JsCode",
+          "inlineCode": [
+            "const __yaVars = runtimeScene.getGame().getVariablesForExtension('YandexMobileAds');",
+            "const __yaSetB = (n,v) => __yaVars.get(n).setBoolean(Boolean(v));",
+            "const __yaSetN = (n,v) => __yaVars.get(n).setNumber(Number(v)||0);",
+            "const __yaSetS = (n,v) => __yaVars.get(n).setString(v == null ? '' : String(v));",
+            "const __yaApi = window.GDevelopYandexAds || window.SurvivalYandexAds || window.YandexAds;",
+            "const __yaError = (e) => { __yaSetS('lastErrorExt', e && (e.message || e.toString) ? (e.message || e.toString()) : String(e || 'Unknown ads error')); };",
+            "[\"isSdkInitializationFailExt\",\"isBannerLoadFailExt\",\"isBannerShownExt\",\"isBannerHiddenExt\",\"isInterstitialLoadFailExt\",\"isInterstitialShownExt\",\"isInterstitialFailedToShowExt\",\"isInterstitialDismissedExt\",\"isRewardedLoadFailExt\",\"isRewardedShownExt\",\"isRewardedFailedToShowExt\",\"isRewardActivatedExt\",\"isRewardedDismissedExt\",\"isOpenAppAdsLoadFailExt\",\"isOpenAppAdsShownExt\",\"isOpenAppAdsFailedToShowExt\",\"isOpenAppAdslDismissedExt\"].forEach(n=>__yaSetB(n,false));",
+            "__yaSetN('rewardAmountExt',0);__yaSetS('lastErrorExt','');"
+          ],
+          "parameterObjects": "",
+          "useStrict": true,
+          "eventsSheetExpanded": false
+        }
+      ],
+      "parameters": [],
+      "objectGroups": []
+    },
+    {
+      "description": "Удаляет все загруженные рекламные объекты и нативные представления.",
+      "fullName": "Отключить рекламу и очистить память",
+      "functionType": "Action",
+      "group": "6. Служебные действия",
+      "name": "destroyAds",
+      "sentence": "Удалить всю рекламу и очистить память",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::JsCode",
+          "inlineCode": [
+            "const __yaVars = runtimeScene.getGame().getVariablesForExtension('YandexMobileAds');",
+            "const __yaSetB = (n,v) => __yaVars.get(n).setBoolean(Boolean(v));",
+            "const __yaSetN = (n,v) => __yaVars.get(n).setNumber(Number(v)||0);",
+            "const __yaSetS = (n,v) => __yaVars.get(n).setString(v == null ? '' : String(v));",
+            "const __yaApi = window.GDevelopYandexAds || window.SurvivalYandexAds || window.YandexAds;",
+            "const __yaError = (e) => { __yaSetS('lastErrorExt', e && (e.message || e.toString) ? (e.message || e.toString()) : String(e || 'Неизвестная ошибка рекламы')); };",
+            "const __yaAfterInit = (fn) => {",
+            "  if (!__yaApi) { __yaError('Плагин рекламы недоступен. Проверяйте установленный Android APK, а не предпросмотр в браузере.'); return Promise.resolve(); }",
+            "  return Promise.resolve(window.__GDevelopYandexAdsInitPromise).then(fn).catch(__yaError);",
+            "};",
+            "const __yaMarginState=window.__GDevelopYandexAdsExtensionStateV6;",
+            "if(__yaMarginState){__yaMarginState.bannerVisible=false;__yaMarginState.applyBannerMargin&&__yaMarginState.applyBannerMargin();}",
+            "__yaAfterInit(() => __yaApi.destroy());"
+          ],
+          "parameterObjects": "",
+          "useStrict": true,
+          "eventsSheetExpanded": false
+        }
+      ],
+      "parameters": [],
+      "objectGroups": []
+    },
+    {
+      "description": "Проверяет, что нативный SDK успешно инициализирован.",
+      "fullName": "SDK рекламы готов",
+      "functionType": "Condition",
+      "group": "1. Подключение и настройки",
+      "name": "isSdkReady",
+      "sentence": "SDK рекламы готов",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "BooleanVariable"
+              },
+              "parameters": [
+                "isSdkReadyExt",
+                "True",
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SetReturnBoolean"
+              },
+              "parameters": [
+                "True"
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": [],
+      "objectGroups": []
+    },
+    {
+      "description": "Срабатывает, если SDK рекламы не удалось запустить.",
+      "fullName": "Ошибка инициализации SDK",
+      "functionType": "Condition",
+      "group": "1. Подключение и настройки",
+      "name": "isSdkInitializationFail",
+      "sentence": "Произошла ошибка инициализации SDK рекламы",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "BooleanVariable"
+              },
+              "parameters": [
+                "isSdkInitializationFailExt",
+                "True",
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SetReturnBoolean"
+              },
+              "parameters": [
+                "True"
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": [],
+      "objectGroups": []
+    },
+    {
+      "description": "Срабатывает в браузерном предпросмотре или если Cordova-плагин не попал в Android-сборку.",
+      "fullName": "Плагин рекламы недоступен",
+      "functionType": "Condition",
+      "group": "1. Подключение и настройки",
+      "name": "isAdsPluginUnavailable",
+      "sentence": "Нативный плагин рекламы недоступен",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "BooleanVariable"
+              },
+              "parameters": [
+                "isAdsPluginUnavailableExt",
+                "True",
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SetReturnBoolean"
+              },
+              "parameters": [
+                "True"
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": [],
+      "objectGroups": []
+    },
+    {
+      "description": "Проверяет, что баннер успешно загружен.",
+      "fullName": "Баннер загружен",
+      "functionType": "Condition",
+      "group": "2. Баннер",
+      "name": "isBannerLoaded",
+      "sentence": "Баннер загружен и готов",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "BooleanVariable"
+              },
+              "parameters": [
+                "isBannerLoadedExt",
+                "True",
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SetReturnBoolean"
+              },
+              "parameters": [
+                "True"
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": [],
+      "objectGroups": []
+    },
+    {
+      "description": "Срабатывает при ошибке загрузки баннера.",
+      "fullName": "Баннер не загрузился",
+      "functionType": "Condition",
+      "group": "2. Баннер",
+      "name": "isBannerLoadFail",
+      "sentence": "Баннер не удалось загрузить",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "BooleanVariable"
+              },
+              "parameters": [
+                "isBannerLoadFailExt",
+                "True",
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SetReturnBoolean"
+              },
+              "parameters": [
+                "True"
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": [],
+      "objectGroups": []
+    },
+    {
+      "description": "Одноразовое состояние после появления баннера.",
+      "fullName": "Баннер был показан",
+      "functionType": "Condition",
+      "group": "2. Баннер",
+      "name": "isBannerShown",
+      "sentence": "Баннер был показан",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "BooleanVariable"
+              },
+              "parameters": [
+                "isBannerShownExt",
+                "True",
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SetReturnBoolean"
+              },
+              "parameters": [
+                "True"
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": [],
+      "objectGroups": []
+    },
+    {
+      "description": "Одноразовое состояние после скрытия баннера.",
+      "fullName": "Баннер был скрыт",
+      "functionType": "Condition",
+      "group": "2. Баннер",
+      "name": "isBannerHidden",
+      "sentence": "Баннер был скрыт",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "BooleanVariable"
+              },
+              "parameters": [
+                "isBannerHiddenExt",
+                "True",
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SetReturnBoolean"
+              },
+              "parameters": [
+                "True"
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": [],
+      "objectGroups": []
+    },
+    {
+      "description": "Проверяет готовность межстраничной рекламы.",
+      "fullName": "Межстраничная реклама загружена",
+      "functionType": "Condition",
+      "group": "3. Межстраничная реклама",
+      "name": "isInterstitialLoaded",
+      "sentence": "Межстраничная реклама загружена и готова",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "BooleanVariable"
+              },
+              "parameters": [
+                "isInterstitialLoadedExt",
+                "True",
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SetReturnBoolean"
+              },
+              "parameters": [
+                "True"
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": [],
+      "objectGroups": []
+    },
+    {
+      "description": "Срабатывает при ошибке загрузки межстраничной рекламы.",
+      "fullName": "Межстраничная реклама не загрузилась",
+      "functionType": "Condition",
+      "group": "3. Межстраничная реклама",
+      "name": "isInterstitialLoadFail",
+      "sentence": "Межстраничную рекламу не удалось загрузить",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "BooleanVariable"
+              },
+              "parameters": [
+                "isInterstitialLoadFailExt",
+                "True",
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SetReturnBoolean"
+              },
+              "parameters": [
+                "True"
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": [],
+      "objectGroups": []
+    },
+    {
+      "description": "Одноразовое состояние после начала показа.",
+      "fullName": "Межстраничная реклама была показана",
+      "functionType": "Condition",
+      "group": "3. Межстраничная реклама",
+      "name": "isInterstitialShown",
+      "sentence": "Межстраничная реклама была показана",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "BooleanVariable"
+              },
+              "parameters": [
+                "isInterstitialShownExt",
+                "True",
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SetReturnBoolean"
+              },
+              "parameters": [
+                "True"
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": [],
+      "objectGroups": []
+    },
+    {
+      "description": "Срабатывает, если загруженную рекламу не удалось открыть.",
+      "fullName": "Ошибка показа межстраничной рекламы",
+      "functionType": "Condition",
+      "group": "3. Межстраничная реклама",
+      "name": "isInterstitialFailedToShow",
+      "sentence": "Межстраничную рекламу не удалось показать",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "BooleanVariable"
+              },
+              "parameters": [
+                "isInterstitialFailedToShowExt",
+                "True",
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SetReturnBoolean"
+              },
+              "parameters": [
+                "True"
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": [],
+      "objectGroups": []
+    },
+    {
+      "description": "Одноразовое состояние после закрытия рекламы пользователем.",
+      "fullName": "Межстраничная реклама закрыта",
+      "functionType": "Condition",
+      "group": "3. Межстраничная реклама",
+      "name": "isInterstitialDismissed",
+      "sentence": "Пользователь закрыл межстраничную рекламу",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "BooleanVariable"
+              },
+              "parameters": [
+                "isInterstitialDismissedExt",
+                "True",
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SetReturnBoolean"
+              },
+              "parameters": [
+                "True"
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": [],
+      "objectGroups": []
+    },
+    {
+      "description": "Проверяет готовность рекламы с наградой.",
+      "fullName": "Реклама с наградой загружена",
+      "functionType": "Condition",
+      "group": "4. Реклама с наградой",
+      "name": "isRewardedLoaded",
+      "sentence": "Реклама с наградой загружена и готова",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "BooleanVariable"
+              },
+              "parameters": [
+                "isRewardedLoadedExt",
+                "True",
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SetReturnBoolean"
+              },
+              "parameters": [
+                "True"
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": [],
+      "objectGroups": []
+    },
+    {
+      "description": "Срабатывает при ошибке загрузки рекламы с наградой.",
+      "fullName": "Реклама с наградой не загрузилась",
+      "functionType": "Condition",
+      "group": "4. Реклама с наградой",
+      "name": "isRewardedVideoLoadFail",
+      "sentence": "Рекламу с наградой не удалось загрузить",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "BooleanVariable"
+              },
+              "parameters": [
+                "isRewardedLoadFailExt",
+                "True",
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SetReturnBoolean"
+              },
+              "parameters": [
+                "True"
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": [],
+      "objectGroups": []
+    },
+    {
+      "description": "Одноразовое состояние после начала показа.",
+      "fullName": "Реклама с наградой была показана",
+      "functionType": "Condition",
+      "group": "4. Реклама с наградой",
+      "name": "isRewardedVideoShown",
+      "sentence": "Реклама с наградой была показана",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "BooleanVariable"
+              },
+              "parameters": [
+                "isRewardedShownExt",
+                "True",
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SetReturnBoolean"
+              },
+              "parameters": [
+                "True"
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": [],
+      "objectGroups": []
+    },
+    {
+      "description": "Срабатывает, если рекламу с наградой не удалось открыть.",
+      "fullName": "Ошибка показа рекламы с наградой",
+      "functionType": "Condition",
+      "group": "4. Реклама с наградой",
+      "name": "isRewardedFailedToShow",
+      "sentence": "Рекламу с наградой не удалось показать",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "BooleanVariable"
+              },
+              "parameters": [
+                "isRewardedFailedToShowExt",
+                "True",
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SetReturnBoolean"
+              },
+              "parameters": [
+                "True"
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": [],
+      "objectGroups": []
+    },
+    {
+      "description": "Главное условие для выдачи награды. Срабатывает ровно один раз после подтверждения SDK и автоматически сбрасывает внутренний флаг, поэтому награда не повторяется после смены сцены.",
+      "fullName": "Пользователь получил награду — один раз",
+      "functionType": "Condition",
+      "group": "4. Реклама с наградой",
+      "name": "isRewardActivated",
+      "sentence": "Пользователь получил награду (сработает только один раз)",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::JsCode",
+          "inlineCode": [
+            "const __yaRewardFlag = runtimeScene.getGame().getVariablesForExtension('YandexMobileAds').get('isRewardActivatedExt');",
+            "const __yaRewardGranted = __yaRewardFlag.getAsBoolean();",
+            "if (__yaRewardGranted) {",
+            "  __yaRewardFlag.setBoolean(false);",
+            "}",
+            "eventsFunctionContext.returnValue = __yaRewardGranted;"
+          ],
+          "parameterObjects": "",
+          "useStrict": true,
+          "eventsSheetExpanded": false
+        }
+      ],
+      "parameters": [],
+      "objectGroups": []
+    },
+    {
+      "description": "Одноразовое состояние после закрытия рекламного окна.",
+      "fullName": "Реклама с наградой закрыта",
+      "functionType": "Condition",
+      "group": "4. Реклама с наградой",
+      "name": "isRewardedVideoDismissed",
+      "sentence": "Пользователь закрыл рекламу с наградой",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "BooleanVariable"
+              },
+              "parameters": [
+                "isRewardedDismissedExt",
+                "True",
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SetReturnBoolean"
+              },
+              "parameters": [
+                "True"
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": [],
+      "objectGroups": []
+    },
+    {
+      "description": "Проверяет готовность App Open рекламы.",
+      "fullName": "Реклама при открытии загружена",
+      "functionType": "Condition",
+      "group": "5. Реклама при запуске",
+      "name": "isOpenAppAdsLoaded",
+      "sentence": "Реклама при открытии приложения загружена",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "BooleanVariable"
+              },
+              "parameters": [
+                "isOpenAppAdsLoadedExt",
+                "True",
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SetReturnBoolean"
+              },
+              "parameters": [
+                "True"
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": [],
+      "objectGroups": []
+    },
+    {
+      "description": "Срабатывает при ошибке загрузки App Open рекламы.",
+      "fullName": "Реклама при открытии не загрузилась",
+      "functionType": "Condition",
+      "group": "5. Реклама при запуске",
+      "name": "isOpenAppAdsLoadFail",
+      "sentence": "Рекламу при открытии не удалось загрузить",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "BooleanVariable"
+              },
+              "parameters": [
+                "isOpenAppAdsLoadFailExt",
+                "True",
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SetReturnBoolean"
+              },
+              "parameters": [
+                "True"
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": [],
+      "objectGroups": []
+    },
+    {
+      "description": "Одноразовое состояние после начала показа App Open рекламы.",
+      "fullName": "Реклама при открытии была показана",
+      "functionType": "Condition",
+      "group": "5. Реклама при запуске",
+      "name": "isOpenAppAdsShown",
+      "sentence": "Реклама при открытии приложения была показана",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "BooleanVariable"
+              },
+              "parameters": [
+                "isOpenAppAdsShownExt",
+                "True",
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SetReturnBoolean"
+              },
+              "parameters": [
+                "True"
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": [],
+      "objectGroups": []
+    },
+    {
+      "description": "Срабатывает, если App Open рекламу не удалось показать.",
+      "fullName": "Ошибка показа рекламы при открытии",
+      "functionType": "Condition",
+      "group": "5. Реклама при запуске",
+      "name": "isOpenAppAdsFailedToShow",
+      "sentence": "Рекламу при открытии приложения не удалось показать",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "BooleanVariable"
+              },
+              "parameters": [
+                "isOpenAppAdsFailedToShowExt",
+                "True",
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SetReturnBoolean"
+              },
+              "parameters": [
+                "True"
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": [],
+      "objectGroups": []
+    },
+    {
+      "description": "Одноразовое состояние после закрытия App Open рекламы.",
+      "fullName": "Реклама при открытии закрыта",
+      "functionType": "Condition",
+      "group": "5. Реклама при запуске",
+      "name": "isOpenAppAdslDismissed",
+      "sentence": "Пользователь закрыл рекламу при открытии приложения",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "BooleanVariable"
+              },
+              "parameters": [
+                "isOpenAppAdslDismissedExt",
+                "True",
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SetReturnBoolean"
+              },
+              "parameters": [
+                "True"
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": [],
+      "objectGroups": []
+    },
+    {
+      "description": "Внутреннее действие расширения.",
+      "fullName": "Служебная зависимость Android",
+      "functionType": "Action",
+      "group": "Внутреннее",
+      "name": "EnsureAndroidAdsDependency",
+      "sentence": "Служебная зависимость Android",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": []
+        }
+      ],
+      "parameters": [],
+      "objectGroups": [],
+      "private": true
+    }
+  ],
+  "eventsFunctionsFolderStructure": {
+    "folderName": "__ROOT",
+    "children": [
+      {
+        "folderName": "1. Подключение и настройки",
+        "children": [
+          {
+            "functionName": "InitSDK"
+          },
+          {
+            "functionName": "setUserConsent"
+          },
+          {
+            "functionName": "configurePrivacy"
+          },
+          {
+            "functionName": "isSdkReady"
+          },
+          {
+            "functionName": "isSdkInitializationFail"
+          },
+          {
+            "functionName": "isAdsPluginUnavailable"
+          }
+        ]
+      },
+      {
+        "folderName": "2. Баннер",
+        "children": [
+          {
+            "functionName": "LoadBanner"
+          },
+          {
+            "functionName": "ShowBanner"
+          },
+          {
+            "functionName": "LoadAndShowBanner"
+          },
+          {
+            "functionName": "reloadBanner"
+          },
+          {
+            "functionName": "hideBanner"
+          },
+          {
+            "functionName": "destroyBanner"
+          },
+          {
+            "functionName": "isBannerLoaded"
+          },
+          {
+            "functionName": "isBannerLoadFail"
+          },
+          {
+            "functionName": "isBannerShown"
+          },
+          {
+            "functionName": "isBannerHidden"
+          }
+        ]
+      },
+      {
+        "folderName": "3. Межстраничная реклама",
+        "children": [
+          {
+            "functionName": "loadInterstitial"
+          },
+          {
+            "functionName": "ShowInterstitial"
+          },
+          {
+            "functionName": "isInterstitialLoaded"
+          },
+          {
+            "functionName": "isInterstitialLoadFail"
+          },
+          {
+            "functionName": "isInterstitialShown"
+          },
+          {
+            "functionName": "isInterstitialFailedToShow"
+          },
+          {
+            "functionName": "isInterstitialDismissed"
+          }
+        ]
+      },
+      {
+        "folderName": "4. Реклама с наградой",
+        "children": [
+          {
+            "functionName": "LoadRewardedVideo"
+          },
+          {
+            "functionName": "ShowRewardedVideo"
+          },
+          {
+            "functionName": "isRewardedLoaded"
+          },
+          {
+            "functionName": "isRewardedVideoLoadFail"
+          },
+          {
+            "functionName": "isRewardedVideoShown"
+          },
+          {
+            "functionName": "isRewardedFailedToShow"
+          },
+          {
+            "functionName": "isRewardActivated"
+          },
+          {
+            "functionName": "isRewardedVideoDismissed"
+          }
+        ]
+      },
+      {
+        "folderName": "5. Реклама при запуске",
+        "children": [
+          {
+            "functionName": "loadOpenAppAds"
+          },
+          {
+            "functionName": "showOpenAppAds"
+          },
+          {
+            "functionName": "isOpenAppAdsLoaded"
+          },
+          {
+            "functionName": "isOpenAppAdsLoadFail"
+          },
+          {
+            "functionName": "isOpenAppAdsShown"
+          },
+          {
+            "functionName": "isOpenAppAdsFailedToShow"
+          },
+          {
+            "functionName": "isOpenAppAdslDismissed"
+          }
+        ]
+      },
+      {
+        "folderName": "6. Служебные действия",
+        "children": [
+          {
+            "functionName": "resetEventFlags"
+          },
+          {
+            "functionName": "destroyAds"
+          }
+        ]
+      },
+      {
+        "folderName": "Внутреннее",
+        "children": [
+          {
+            "functionName": "EnsureAndroidAdsDependency"
+          }
+        ]
+      }
+    ]
+  },
+  "eventsBasedBehaviors": [],
+  "eventsBasedObjects": []
+}
